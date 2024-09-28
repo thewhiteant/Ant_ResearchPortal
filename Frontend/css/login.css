@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Dots:wght@600..700&display=swap");
 :root {
-  --highlight: #fccd2a;
+   --highlight: #fccd2a;
   --bg_color: #c0eba6;
   --header_border: #000;
   --text_shadow: #000;
@@ -13,8 +13,18 @@
   --input_texts: #000;
   --all_Text_clr: #000;
   --Input_bg_clr: #fff;
+  --bg1:#fcce2ac6;
+  --bg2:#ff875bd4;
+  --bg3:lightgreen;
+  --bg4:lightblue;
+  --bg1b:black;
+  --bg2b:black;
+  --bg3b:black;
+  --bg4b:black;
+  --blur_2:8px;
+  
 
-  /* --highlight:#2d6423 ;
+    /* --highlight:#2d6423 ;
     --bg_color:#191A19;
     --header_border:#4E9F3D;
     --text_shadow:#ffeba4ca;
@@ -26,7 +36,18 @@
     --Eye_icon:white;
     --input_texts:#FCCD2A;
     --all_Text_clr: #FCCD2A;
-    --Input_bg_clr:#4a4a4a; */
+    --Input_bg_clr:#4a4a4a; 
+  --bg1:transparent;
+  --bg1b:#fcce2ac6;
+  --bg2:transparent;
+  --bg2b:#ff875bd4;
+  --bg3:transparent;
+  --bg3b:lightgreen;
+  --bg4:transparent;
+  --bg4b:lightblue;
+  --blur_2:12px;  */
+
+   
 }
 @keyframes hasina {
   from {
@@ -56,6 +77,9 @@ body,
   justify-content: center;
   flex-direction: column;
   background-color: var(--bg_color);
+}
+.loginForm{
+    background-color: transparent;
 }
 .heading {
   margin: 5rem 0 1rem 0;
@@ -162,4 +186,41 @@ input::-webkit-input-placeholder {
 }
 input {
   color: var(--input_texts);
+}
+.BGS{
+    height: 60vh;
+    width: 55vw;
+    border: 5px solid var(--bg_color);
+    border-radius: 10%;
+    transform: rotate(60deg);
+    position: absolute;
+    z-index: -1;
+    filter: blur(var(--blur_2));
+    opacity: 0.6;
+}
+.bg_top{
+    transform: rotate(30deg);
+    background-color: var(--bg3);
+    border-color: var(--bg3b);
+
+}
+.bg_bottom{
+    transform: rotate(-30deg);
+    background-color: var(--bg4);
+    border-color: var(--bg4b);
+}
+.bg_left{
+    background-color: var(--bg1);
+    border-color: var(--bg1b);
+    left: 0;
+}
+.bg_right{
+    background-color: var(--bg2);
+    border-color: var(--bg2b);
+    right: 0;
+
+}
+.BGS:hover{  
+    transition: all 2s linear ;
+    scale: 1.1;
 }

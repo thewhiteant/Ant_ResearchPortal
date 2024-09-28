@@ -1,6 +1,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&family=Sofadi+One&display=swap");
 
+:root{
+
+  /* --bg_color:#fffbe6;
+  --left_strip:#fccd2a;
+  --right_strip:#c0eba6;
+  --top_bar_bottom_border:gray;
+  --top_bar_shadow:#00000080;
+  --input_border_color:#347928;
+  --sign_txt_clr:blue;
+  --item_bg_clr:#ffffec;
+  --items_shadow:#0000004d;
+  --log_out:red;
+  --log_out_after:blue;
+  --upload_border:red;
+  --switch_bgc: #00000040;
+  --switch_bgc_after: #f9ffeb;
+  --switch_checked: #2d6423; */
+
+
+    --bg_color:#fffbe6;
+  --left_strip:#fccd2a;
+  --right_strip:#c0eba6;
+  --top_bar_bottom_border:gray;
+  --top_bar_shadow:#00000080;
+  --input_border_color:#347928;
+  --sign_txt_clr:blue;
+  --item_bg_clr:#ffffec;
+  --items_shadow:#0000004d;
+  --log_out:red;
+  --log_out_after:blue;
+  --upload_border:red;
+  --switch_bgc: #00000040;
+  --switch_bgc_after: #f9ffeb;
+  --switch_checked: #2d6423;
+
+
+}
 ::-webkit-scrollbar {
   display: none;
 }
@@ -14,7 +51,7 @@ html {
   padding: 0;
 }
 body {
-  background-color: #fffbe6;
+  background-color: var(--bg_color);
   font-family: "Roboto", sans-serif;
 }
 
@@ -27,7 +64,7 @@ body {
 .Contents {
   width: 75%;
   height: 100%;
-  border-left: 12px solid #fccd2a;
+  border-left: 12px solid var(--left_strip);
 }
 
 .searchbox {
@@ -37,15 +74,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 2px solid gray;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  border-bottom: 2px solid var(--top_bar_bottom_border);
+  box-shadow: 2px 2px 10px var(--top_bar_shadow);
 }
 
 .sbf > input {
   height: 30px;
   margin: 0px;
   padding: 0px;
-  border-color: #347928;
+  border-color: var(--input_border_color);
 }
 .sbf input[type="text"] {
   border-top-left-radius: 5px;
@@ -55,7 +92,7 @@ body {
 
 .sbf input[type="text"]:hover {
   /* background-color: #faf8eb; */
-  border-color: #fccd2a;
+  border-color: var(--left_strip);
 }
 
 .sbf input[type="submit"] {
@@ -80,12 +117,12 @@ body {
   border-bottom-left-radius: 10px;
   width: 100%;
   height: 80px;
-  border-right: 10px solid #c0eba6;
-  background-color: #ffffec;
+  border-right: 10px solid var(--right_strip);
+  background-color:var(--item_bg_clr) ;  
   margin: 5px 0px;
   flex-shrink: 0;
   flex-grow: 0;
-  box-shadow: 5px 6px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 5px 6px 10px var(--items_shadow);
   transition: transform 0.3s ease, opacity 0.8s ease;
   display: flex;
   justify-content: space-between;
@@ -94,7 +131,7 @@ body {
 .doc > img {
   /* border: 2px solid; */
   align-self: flex-start;
-  border-right: 5px solid #fccd2a;
+  border-right: 5px solid var(--left_strip);
   border-bottom-left-radius: 10px;
   height: 100%;
 }
@@ -120,7 +157,7 @@ body {
 
 .user {
   width: auto;
-  color: blue;
+  color: var(--sign_txt_clr);
   font-weight: bold;
   font-family: "Sofadi One", system-ui;
   font-size: small;
@@ -135,7 +172,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  border-left: 8px solid #c0eba6;
+  border-left: 8px solid var(--right_strip);
   width: 23%;
   height: 100%;
 }
@@ -144,16 +181,18 @@ body {
   /* width: 100%; */
   /* border: 1px solid red; */
   padding: 5px;
+  display: flex;
   align-self: flex-end;
 }
 
 .upper > a {
-  color: red;
+  color: var(--log_out);
+  margin-left: 10px;
   font-weight: bold;
 }
 
 .upper > a:hover {
-  color: blue;
+  color: var(--log_out_after);
   font-weight: 10px;
   text-decoration: none;
 }
@@ -163,10 +202,50 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
+  border: 1px solid var(--upload_border);
   margin-top: 200px;
 }
 .upload > img {
   width: 60%;
-  border: 5px solid #347928;
+  border: 5px solid var(--input_border_color);
+}
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 2.5rem;
+  height: 1.5rem;
+  background-color: var(--switch_bgc);
+  border-radius: 2rem;
+  transition: all 0.2s linear;
+}
+
+.switch::after {
+  content: "";
+  position: absolute;
+  top: 0.1rem;
+  left: 0.1rem;
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.1rem;
+  border-radius: 50%;
+  background-color: var(--switch_bgc_after);
+  transition: all 0.2s linear;
+}
+
+input[type="checkbox"]:checked + .switch:after {
+  translate: 1rem 0;
+}
+
+input[type="checkbox"]:checked + .switch {
+  background-color: var(--switch_checked);
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+.dark_mode {
+  display: flex;
+  align-self: end;
 }

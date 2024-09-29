@@ -17,25 +17,38 @@
   --upload_border:red;
   --switch_bgc: #00000040;
   --switch_bgc_after: #f9ffeb;
-  --switch_checked: #2d6423; */
+  --switch_checked: #2d6423; 
+  --time:gray;
+  --input_bg_clr:white;
+  --upload_icon_bg_clr:#009a00;
+  --upload_icon_clr:white;
+  --upload_border:black; */
+ 
 
 
-    --bg_color:#fffbe6;
-  --left_strip:#fccd2a;
-  --right_strip:#c0eba6;
-  --top_bar_bottom_border:gray;
-  --top_bar_shadow:#00000080;
-  --input_border_color:#347928;
-  --sign_txt_clr:blue;
-  --item_bg_clr:#ffffec;
+    --bg_color:#191A19;
+  --left_strip:#fcce2a94;
+  --right_strip:#c0eba6a0;
+  --top_bar_bottom_border:rgba(255, 234, 177, 0.841);
+  --top_bar_shadow:#ffffff63;
+  --input_border_color:#9eff71a9;
+  --sign_txt_clr:#ffde65;
+  --placeHolder_txt_clr:rgb(255, 255, 255);
+  --item_bg_clr:#4a4a4a;
+  --all_txt_clr:#dcdcdc;
   --items_shadow:#0000004d;
-  --log_out:red;
-  --log_out_after:blue;
+  --log_out:rgba(255, 115, 55, 0.999);
+  --log_out_after:rgb(146, 224, 250);
   --upload_border:red;
   --switch_bgc: #00000040;
   --switch_bgc_after: #f9ffeb;
   --switch_checked: #2d6423;
-
+  --time:rgb(218, 218, 218);
+  --input_bg_clr:rgb(100, 100, 100);
+  --upload_icon_bg_clr:#006800;
+  --upload_icon_clr:white;
+  --upload_border:#ffffffaa;
+  
 
 }
 ::-webkit-scrollbar {
@@ -49,6 +62,7 @@ html {
 * {
   margin: 0;
   padding: 0;
+  color: var(--all_txt_clr);
 }
 body {
   background-color: var(--bg_color);
@@ -81,6 +95,9 @@ body {
 .sbf > input {
   height: 30px;
   margin: 0px;
+  outline: none;
+  background-color: var(--input_bg_clr);
+  color: var(--placeHolder_txt_clr);
   padding: 0px;
   border-color: var(--input_border_color);
 }
@@ -163,7 +180,7 @@ body {
   font-size: small;
 }
 .time {
-  color: gray;
+  color: var(--time);
   font-size: small;
 }
 
@@ -248,4 +265,22 @@ input[type="checkbox"] {
 .dark_mode {
   display: flex;
   align-self: end;
+}
+input::-webkit-input-placeholder {
+  color: var(--placeHolder_txt_clr);
+}
+.upload_svg{
+  height:max-content;
+
+  width:  clamp(5rem ,11rem + 4vw,15rem + 4vw);
+  background-color: var(--upload_icon_bg_clr);
+  fill: var(--upload_icon_clr);
+  border-radius: 10%;
+  border: 2px solid var(--upload_border);
+  margin: 1rem 1rem;
+}
+.upload_svg:hover{
+  scale: 1.1;
+  transform: rotate(5deg);
+  transition: all 0.5s ease-in ;
 }

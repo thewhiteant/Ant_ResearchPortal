@@ -3,18 +3,20 @@
 
 :root{
 
-  /* --bg_color:#fffbe6;
+  
+  --bg_color:#fffbe6;
   --left_strip:#fccd2a;
   --right_strip:#c0eba6;
   --top_bar_bottom_border:gray;
   --top_bar_shadow:#00000080;
   --input_border_color:#347928;
   --sign_txt_clr:blue;
-  --item_bg_clr:#ffffec;
+  --placeHolder_txt_clr:black;
+  --item_bg_clr:#fff;
+  --all_txt_clr:black;
   --items_shadow:#0000004d;
   --log_out:red;
   --log_out_after:blue;
-  --upload_border:red;
   --switch_bgc: #00000040;
   --switch_bgc_after: #f9ffeb;
   --switch_checked: #2d6423; 
@@ -22,10 +24,9 @@
   --input_bg_clr:white;
   --upload_icon_bg_clr:#009a00;
   --upload_icon_clr:white;
-  --upload_border:black; */
- 
+  --upload_border:black; 
 
-
+/* 
     --bg_color:#191A19;
   --left_strip:#fcce2a94;
   --right_strip:#c0eba6a0;
@@ -39,7 +40,6 @@
   --items_shadow:#0000004d;
   --log_out:rgba(255, 115, 55, 0.999);
   --log_out_after:rgb(146, 224, 250);
-  --upload_border:red;
   --switch_bgc: #00000040;
   --switch_bgc_after: #f9ffeb;
   --switch_checked: #2d6423;
@@ -47,7 +47,7 @@
   --input_bg_clr:rgb(100, 100, 100);
   --upload_icon_bg_clr:#006800;
   --upload_icon_clr:white;
-  --upload_border:#ffffffaa;
+  --upload_border:#ffffffaa; */
   
 
 }

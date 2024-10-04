@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Document</title>
+    <link rel="stylesheet" href="./css/upload.css">
+</head>
+<body>
+    <form class="taking_pdfs" action="/upload" method="post" enctype="multipart/form-data">
+        <p class="asking">Enter Your Research Paper Here</p>
+        <label for="pdfInput" class="custom-file-upload">
+          Choose PDF
+        </label>
+        <input type="file" id="pdfInput" name="pdfInput" accept=".pdf" />
+        <!-- <span id="file-name">No file selected</span> -->
+        <input type="submit"  class="upload_Btn" value="Upload">
+      </form>
+      
+      
+</body>
+</html>

@@ -13,10 +13,11 @@
     <div class="MainContent">
         
         <div class="Contents">
-
+ 
             <div class="searchbox">
                 <form action="#" class="sbf">
-                    <input type="text" placeholder="Query"><input type="submit" value="Search">
+                    <input type="text" placeholder="Query">
+                    <input type="submit" value="Search">
                 </form>
             </div>
 
@@ -265,16 +266,21 @@
 
         <div class="side_content">
 
-            <div class="upper">
+            <div class="upper"> 
+            <div class="dark_mode">
+            <input type="checkbox" name="checkbox" id="toggle">
+            <label for="toggle" class="switch"></label>
+            </div>
                 <a href="#"> Logout </a>
             </div>
 
             <div class="upload">
-                <img src="../Assets/upload.png" alt="upload image">
+                <!-- <img src="../Assets/upload.png" alt="upload image"> -->
+                 <svg class="Upload_svg" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-320v-326L336-542l-56-58 200-200 200 200-56 58-104-104v326h-80ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg>
             </div>
 
 
-            <!-- <div class="note-taking-container">
+            <div class="note-taking-container">
                 <h1>My Notes</h1>
                 <div class="note-input">
                    <textarea id="noteText" placeholder="Write your note here..."></textarea>
@@ -282,7 +288,7 @@
            </div>
            <div class="notes-list" id="notesList">
                 
-           </div> -->
+           </div>
        
        
 

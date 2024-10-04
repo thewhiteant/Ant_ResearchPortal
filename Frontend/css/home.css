@@ -75,7 +75,8 @@ body {
 }
 
 .doc {
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
   padding-right: 10px;
   border-bottom-left-radius: 10px;
   width: 100%;
@@ -104,10 +105,12 @@ body {
 }
 
 .titleofpaper {
-  font-size: 20px;
+  font-size: large;
+  font-weight: bold;
   width: auto;
-  text-align: center;
-  overflow-wrap: break-word;
+  text-align: left;
+  padding: 50px 10px;
+  /* overflow-wrap: break-word; */
 }
 
 .metaInfo {

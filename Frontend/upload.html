@@ -1,22 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Document</title>
-    <link rel="stylesheet" href="./css/upload.css">
-</head>
-<body>
-    <form class="taking_pdfs" action="/upload" method="post" enctype="multipart/form-data">
-        <p class="asking">Enter Your Research Paper Here</p>
-        <label for="pdfInput" class="custom-file-upload">
-          Choose PDF
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload Research Paper</title>
+    <link rel="stylesheet" href="./css/upload.css" />
+  </head>
+  <body>
+    <div class="upload-container">
+      <form
+        class="upload-form"
+        action="/upload"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <h1 class="form-title">Upload Your Research Paper</h1>
+
+        <label for="pdfInput" class="file-label">
+          <input type="file" id="pdfInput" name="pdfInput" accept=".pdf" />
+          <span class="file-button">Choose PDF</span>
         </label>
-        <input type="file" id="pdfInput" name="pdfInput" accept=".pdf" />
-        <!-- <span id="file-name">No file selected</span> -->
-        <input type="submit"  class="upload_Btn" value="Upload">
+
+        <input
+          type="text"
+          id="fileName"
+          name="fileName"
+          placeholder="File Name"
+          readonly
+        />
+
+        <textarea
+          id="description"
+          name="description"
+          placeholder="Enter a short description"
+        ></textarea>
+
+        <input type="submit" class="submit-btn" value="Upload Paper" />
       </form>
-      
-      
-</body>
+    </div>
+
+    <script>
+      const pdfInput = document.getElementById("pdfInput");
+      const fileNameInput = document.getElementById("fileName");
+
+      pdfInput.addEventListener("change", function () {
+        const fileName = pdfInput.files[0].name;
+        fileNameInput.value = fileName;
+      });
+    </script>
+  </body>
 </html>

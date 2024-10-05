@@ -233,6 +233,7 @@ body {
   display: inline-block;
   width: 2.5rem;
   height: 1.5rem;
+
   background-color: var(--switch_bgc);
   border-radius: 2rem;
   transition: all 0.2s linear;
@@ -241,8 +242,8 @@ body {
 .switch::after {
   content: "";
   position: absolute;
-  top: 0.1rem;
-  left: 0.1rem;
+  top: 0.15rem;
+  left: 0.25rem;
   width: 1rem;
   height: 1rem;
   margin-top: 0.1rem;

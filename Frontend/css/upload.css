@@ -1,102 +1,119 @@
-*{
-    border: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-body{
-    background-color: rgba(128, 128, 128, 0.829);
-    background-image: url(./img/upload_bg.avif);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    
-    
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
 }
 
-.taking_pdfs{
-    margin-top: 30vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1.5rem;
-}
-.asking{
-    /* text-shadow: 1px 3px 10px white; */
-    text-shadow: 
-    -1px -1px 1px #eaea5b96, 
-    1px -1px 1px #4083ffad,  
-    -1px 1px 1px #ff0000,    
-    1px 1px 1px #17ff02,
-    2px 2px 1px #ffffff71;     
-
-    font-size: 3rem;
-    font-weight: 900;
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #feff9f; /* Background set to FEFF9F */
 }
 
+.upload-container {
+  width: 100%;
+  max-width: 500px;
+  padding: 2rem;
+  background-color: #ffffff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
-/* Hide the default file input */
+.upload-form {
+  width: 100%;
+}
+
+.form-title {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.file-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: #72bf78; /* Button color */
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.file-label:hover {
+  background-color: #a0d683; /* Button hover color */
+}
+
 input[type="file"] {
-    display: none;
-  }
-  
-  /* Style the custom button */
-  .custom-file-upload {
-    display: inline-block;
-    padding: 10px 20px;
-    height: 4rem;
-    width: 13.5rem;
-    display: grid;
-    place-items: center;
-    color: white;
-    background-color: #4CAF50;
-    border-radius: 1rem;
-    cursor: pointer;
-    text-shadow:     
-    -1px -1px 1px #000000f5, 
-    1px -1px 1px #4083ffad,  
-    -1px 1px 1px #ff0000,    
-    1px 1px 1px #17ff02;
-    font-size: 2rem;
-    font-weight: bold;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 10px 10px 20px black;
-  }
-  
-  .custom-file-upload:hover {
-    transform: scale(1.2);
-    background-color: #53b958;
-    box-shadow: 4px 4px 20px rgba(255, 255, 255, 0.694);
+  display: none;
+}
 
+.file-button {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border 0.3s ease-in-out;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  border-color: #72bf78; /* Focus border color */
+  outline: none;
+}
+
+textarea {
+  height: 100px;
+  resize: none;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  background-color: #d3ee98; /* Submit button color */
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.submit-btn:hover {
+  background-color: #a0d683; /* Submit button hover color */
+}
+
+@media (max-width: 768px) {
+  .upload-container {
+    padding: 1.5rem;
+    max-width: 90%;
   }
-  
-  /* Style the "No file selected" text */
-  #file-name {
-    margin-left: 10px;
-    font-style: italic;
-    color: #555;
-  }
-  .upload_Btn{
-    margin-top: 1rem;
+
+  .form-title {
     font-size: 1.5rem;
-    height: 2.2rem;
-    width: 7rem;
-    border-radius: 0.5rem;
-    box-shadow: 4px 4px 10px rgb(118, 118, 118);
-    transition: all 0.3s ease-in-out;
-
   }
-  .upload_Btn:hover{
-    transform: scale(1.1);
-    height: 2.4rem;
-    background-color: lightblue;
-    /* border: 0.5px solid black; */
-    box-shadow: 4px 4px 10px rgb(255, 255, 255);
 
-
+  .file-button {
+    font-size: 1rem;
   }
+}

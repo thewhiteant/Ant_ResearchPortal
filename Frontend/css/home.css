@@ -372,6 +372,7 @@ input::-webkit-input-placeholder {
 }
 
 #addNoteBtn {
+  width: 100%;
   background-color: #ff4757; /* Button color */
   color: white; /* Text color */
   border: none; /* Remove border */
@@ -404,29 +405,31 @@ input::-webkit-input-placeholder {
   justify-content: space-between;
   align-items: center;
   border-left: 5px solid blue;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 .note > p {
   color: gray;
 }
 
-.note > button {
-  width: 20%;
-  height: 30px;
-  background-color: #e84118;
+.note > a > button {
+  width: 35px;
+  height: 35px;
+
   border-radius: 5px;
   color: white;
   font-weight: bold;
   border: none;
 }
 
-.note > button:active {
+.note > a button:active {
   background-color: #c23616; /* Darker shade when clicked */
   transform: scale(0.95); /* Slightly shrink on click */
 }
 
-.note > button:focus {
+.note > a button:focus {
   outline: none; /* Remove default focus outline */
-  box-shadow: 0 0 0 2px rgba(255, 71, 87, 0.5); /* Outline effect for focus state */
+  box-shadow: 0 0 0 2px rgb(4, 0, 255); /* Outline effect for focus state */
 }
 
 .note:hover {

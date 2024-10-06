@@ -10,6 +10,8 @@ require_once "server.php";
 $sql = "SELECT * FROM `documets` JOIN `auth` ON `userid` = `uid` ORDER BY `utime` DESC";
 $result = $conn->query($sql);
 
+$color = null;
+
   
 
 ?>
@@ -43,39 +45,44 @@ $result = $conn->query($sql);
             ?>   
 
                 <div class="doc">
-                    <img src="../Assets/defaultdocpreview.png" alt="corrupt">
-                  <div class="titleofpaper">
-                     <?php echo  htmlspecialchars($row['name']); ?>
-                     <div class="desc">
-                    <?php echo  htmlspecialchars($row['des']); ?>
-                  </div>
-                  </div>
-             
-                <div class="metaInfo">
-                    <?php
-                        if($row['uid'] == $_SESSION['id']){
-                    ?>
-                        <div class="actionbtns" >
-                           <a href="upload.php?edit= <?php echo  htmlspecialchars($row['id']);?> &&uid= <?php echo  htmlspecialchars($row['uid']);?> "><button class="abtn" style="background-color:#EF5A6F">Edit</button></a>
-                           <a href="deletepaper.php?del= <?php echo  htmlspecialchars($row['id']);?> &&uid= <?php echo  htmlspecialchars($row['uid']);?>"><button class="abtn" style="background-color:#536493">Delete</button></a>
-                        </div>
+                                <img src="../Assets/defaultdocpreview.png" alt="corrupt">
+                            <form class="titleofpaper" action="read.php" method="post" onclick = "this.submit()">
 
-                    <?php
-                        }
-                    ?>
+                                <input type="hidden" name="paper" value = "  <?php echo  htmlspecialchars($row['name']); ?>">
 
-                    <div class="user" style="color: <?php echo  htmlspecialchars($row['color']);?>;">
-                        @<?php echo  htmlspecialchars($row['nname']);?>
-                    </div>
-                    <hr>
-                    <div class="time"><?php echo  htmlspecialchars($row['utime']);?></div>
-                  </div>
-                </div>         
-                
+                                <?php echo  htmlspecialchars($row['name']); ?>
+                                <div class="desc">
+                                <?php echo  htmlspecialchars($row['des']); ?>
+                            </div>
+                            </form>
+                        
+                            <div class="metaInfo">
+                                <?php
+                                    if($row['uid'] == $_SESSION['id']){
 
-             <?php 
-                     }}}
-             ?>
+                                        $color = $row['color'];
+                                ?>
+                                    <div class="actionbtns" >
+                                    <a href="upload.php?edit= <?php echo  htmlspecialchars($row['id']);?> &&uid= <?php echo  htmlspecialchars($row['uid']);?> "><button class="abtn" style="background-color:#EF5A6F">Edit</button></a>
+                                    <a href="deletepaper.php?del= <?php echo  htmlspecialchars($row['id']);?> &&uid= <?php echo  htmlspecialchars($row['uid']);?>"><button class="abtn" style="background-color:#536493">Delete</button></a>
+                                    </div>
+
+                                <?php
+                                    }
+                                ?>
+
+                                <div class="user" style="color: <?php echo  htmlspecialchars($row['color']);?>;">
+                                    @<?php echo  htmlspecialchars($row['nname']);?>
+                                </div>
+                                <hr>
+                                <div class="time"><?php echo  htmlspecialchars($row['utime']);?></div>
+                            </div>
+                            </div>         
+                            
+
+                        <?php 
+                                }}}
+                        ?>
             </div>
             
     </div>
@@ -103,22 +110,51 @@ $result = $conn->query($sql);
             </div>  
             </a>   
   
-          
+            <?php
+
+                $sql_note = "SELECT * FROM `notes`JOIN `auth` ON `notes`.`uid` = `auth`.`uid`;";
+                $notes = $conn->query($sql_note);
+               
+
+            ?>
 
 
             <div class="notepad">
-              <div class="Notes-fns">
+                
+              <form class="Notes-fns" method = "post" action="addnote.php">
                   <h1>My Notes</h1>
                   <div class="note-input">
-                      <textarea id="noteText" placeholder="Write your note here..."></textarea>
-                      <button id="addNoteBtn">Add Note</button>
+                      <textarea id="noteText" name="notess" placeholder="Write your note here..."></textarea>
+                      <input type="submit" id="addNoteBtn" value="Add Note">
                   </div>
                   
-              </div>
-              <div class="notes-list" id="notesList"></div>
-          </div>
+              </form>
+              
+              <div class="notes-list" id="notesList">
+
+
+                     <?php
+                      while ($sinrow = $notes->fetch_assoc()) {
+                     ?>
+
+                    <div class="note" style="border-left: 5px solid <?php echo $sinrow['color']; ?>">
+                    <p><?php  echo $sinrow['note'];?></p>  
+                    
+                    <a href="deletenote.php?noteid=<?php echo $sinrow['note_id']?>&ussr=<?php echo $sinrow['uid']?>">  <button style="background-color: <?php echo $sinrow['color']; ?>;">X</button> </a>
+                
+                    </div>
+                    
+                    <?php
+                      }
+                    ?>
+
+
+        
+  
+            </div>
+        </div>
                       
-        </div>  
+    </div>  
        
 
 

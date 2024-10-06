@@ -70,7 +70,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Upload Research Paper</title>
+    <title>Upload Paper</title>
+    <link rel="icon" href="../Assets/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/upload.css" />
   </head>
   <body>
@@ -96,6 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
           name="fileName"
           placeholder="File Name"
           value="<?php if($chk) { echo htmlspecialchars($row['name']); } ?>"
+          autocomplete = "off",
 
         />
 

@@ -16,12 +16,16 @@
       </div>
     </div>
 
-    <!-- Main Content -->
+
     <div id="main-content" style="display: none">
       <h1>Welcome to Whiteant Research Portal</h1>
       <p>Explore our resources.</p>
     </div>
 
-    <script src="js/loader.js"></script>
+    <script src="js/loader.js"> </script>
+
+
+
+
   </body>
 </html>

@@ -1,17 +1,6 @@
-function showHide() {
-  var passInput = document.getElementById("password");
-  var eyeBtn = document.getElementById("eyeBtn");
-  if (passInput.type === "password") {
-    passInput.type = "text";
-    eyeBtn.style.backgroundColor = "#FCCD2A";
-  } else {
-    passInput.type = "password";
-    eyeBtn.style.backgroundColor = "#FFFBE6";
-  }
-}
-
 let Eye_color = ["#FCCD2A", "#fff", "#2d6423", "#4a4a4a"];
 let i = 0;
+
 function showHide() {
   var passInput = document.getElementById("password");
   var eyeBtn = document.getElementById("eyeBtn");
@@ -23,6 +12,7 @@ function showHide() {
     eyeBtn.style.backgroundColor = Eye_color[i + 1];
   }
 }
+
 const dark_mode = [
   {
     "--highlight": "#2d6423",
@@ -32,7 +22,7 @@ const dark_mode = [
     "--box_shadow": "#ffffff00",
     "--eye_btn_bgc": "#4a4a4a",
     "--switch_bgc": "#00000040",
-    "--switch_bgc_after": "#4a4a4a ",
+    "--switch_bgc_after": "#4a4a4a",
     "--switch_checked": "#2d6423",
     "--Eye_icon": "white",
     "--input_texts": "#FCCD2A",
@@ -73,6 +63,7 @@ const dark_mode = [
     "--blur_2": "8px",
   },
 ];
+
 let darkMode_btn = document.getElementById("toggle");
 darkMode_btn.addEventListener("change", () => {
   if (darkMode_btn.checked) {
@@ -87,8 +78,40 @@ darkMode_btn.addEventListener("change", () => {
     showHide();
   }
 });
+
 function change_theme(e) {
   for (const [key, value] of Object.entries(dark_mode[e])) {
     document.documentElement.style.setProperty(key, value);
   }
 }
+
+// Validation Function
+function validateForm() {
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+
+  // Check if username is empty
+  if (username.trim() === "") {
+    alert("Username cannot be empty.");
+    return false; // Prevent form submission
+  }
+
+  // Check if password is at least 6 characters
+  if (password.length < 6) {
+    alert("Password must be at least 6 characters long.");
+    return false; // Prevent form submission
+  }
+
+  // Additional validation can be added here
+
+  return true; // Allow form submission
+}
+
+// Attach validation to form submission
+document
+  .getElementById("loginForm")
+  .addEventListener("submit", function (event) {
+    if (!validateForm()) {
+      event.preventDefault(); // Prevent form submission if validation fails
+    }
+  });

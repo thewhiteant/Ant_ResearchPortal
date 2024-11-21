@@ -14,8 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
    if(isset($_GET['edit']) && isset($_GET['uid'])){
 
         if($_SESSION['id'] == $_GET['uid']){
-
-            $sql = "SELECT * FROM `documets`;";
+            $myid = $_GET['edit'];
+            $sql = "SELECT * FROM `documets` WHERE `id`= $myid;";
             $result = $conn->query($sql);
             $row = $result->fetch_assoc();
             $chk = true;

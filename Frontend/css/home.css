@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&family=Sofadi+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Pacifico&display=swap");
 :root {
   --bg_color: #fffbe6;
   --left_strip: #fccd2a;
@@ -63,6 +64,7 @@ html {
 body {
   overflow: hidden;
   background-color: var(--bg_color);
+  /* background: linear-gradient(to bottom, #fffbe6, #feffb8); */
   font-family: "Roboto", sans-serif;
 }
 
@@ -78,12 +80,28 @@ body {
   border-left: 12px solid var(--left_strip);
 }
 
+.MainLogo {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.design-logo {
+  font-family: "Pacifico", cursive;
+  font-size: 36px;
+  color: #444;
+  letter-spacing: 1.1px;
+}
+
 .searchbox {
   /* border: 1px solid red; */
   height: 15%;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   border-bottom: 2px solid var(--top_bar_bottom_border);
   box-shadow: 2px 2px 10px var(--top_bar_shadow);

@@ -1,4 +1,10 @@
 <?php
+
+
+
+
+
+
 session_start(); 
 if (!isset($_SESSION['login']) && !isset($_SESSION['usr']) && !isset($_SESSION['id'])) {
     header("Location: login.php");
@@ -7,12 +13,41 @@ if (!isset($_SESSION['login']) && !isset($_SESSION['usr']) && !isset($_SESSION['
 
 require_once "server.php";
 
+
 $sql = "SELECT * FROM `documets` JOIN `auth` ON `userid` = `uid` ORDER BY `utime` DESC";
-$result = $conn->query($sql);
+$result = null;
+
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    
+
+
+    $searchWord = $_POST['squery'];
+    $sql = "SELECT * FROM `documets`
+            JOIN `auth` ON `documets`.`userid` = `auth`.`uid`
+            WHERE `documets`.`name` LIKE ?
+            OR `documets`.`des` LIKE ?
+            OR `auth`.`username` LIKE ?
+            OR `auth`.`nname` LIKE ?
+            ";
+    $stmt = $conn->prepare($sql);
+    $searchPattern = "%" . $searchWord . "%"; 
+    $stmt->bind_param("ssss", $searchPattern, $searchPattern, $searchPattern, $searchPattern); 
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    
+}else{
+    $result = $conn->query($sql);
+
+}
 
 $color = null;
 
-  
+
+
+
+
 
 ?>
 <html lang="en">
@@ -30,11 +65,25 @@ $color = null;
         <div class="Contents">
  
             <div class="searchbox">
-                <form action="#" class="sbf">
-                    <input type="text" placeholder="Query">
+              
+                <div class="MainLogo">
+                  <span class="design-logo"><span style="color: red;">/|nt</span> P_ortal</span>
+                 </div>
+
+            
+            <form action="" class="sbf" method="POST">
+                    <input type="text" name="squery" placeholder="Query" autocomplete="off">
                     <input type="submit" value="Search">
-                </form>
+
+            </form>
+            
+
+            
             </div>
+
+
+
+
 
             <div class="docs">      
                
@@ -118,20 +167,15 @@ $color = null;
 
             ?>
 
-
-            <div class="notepad">
-                
+            <div class="notepad">                
               <form class="Notes-fns" method = "post" action="addnote.php">
                   <h1>My Notes</h1>
                   <div class="note-input">
                       <textarea id="noteText" name="notess" placeholder="Write your note here..."></textarea>
                       <input type="submit" id="addNoteBtn" value="Add Note">
                   </div>
-                  
               </form>
-              
               <div class="notes-list" id="notesList">
-
 
                      <?php
                       while ($sinrow = $notes->fetch_assoc()) {

@@ -23,7 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         }else{
           header("Location: home.php");
                 }
-
    }
 
 }
